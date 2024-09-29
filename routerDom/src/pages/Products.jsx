@@ -1,18 +1,6 @@
 import React from 'react'
 import Product from '../components/Product'
-
-const products = [
-    {
-        id: "1",
-        name: "Bilgisayar",
-        price: "10.000",
-    },
-    {
-        id: "2",
-        name: "Telelefon",
-        price: "12.000",
-    }
-]
+import { products } from '../data/products.json'
 
 function Products() {
     return (
