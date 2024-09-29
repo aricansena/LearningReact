@@ -7,12 +7,12 @@
         },
         {
             "id": "2",
-            "name": "Telelefon",
+            "name": "Telefon",
             "price": "12.000"
         },
         {
             "id": "3",
-            "name": "Televizon",
+            "name": "Televizyon",
             "price": "14.000"
         }
     ]
