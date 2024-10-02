@@ -10,11 +10,11 @@ function Header() {
         const root = document.getElementById("root");
         setTheme(!theme);
         if (theme) {
-            root.style.backgroundColor = "black";
-            root.style.color = "#fff";
+            root.style.backgroundColor = "rgb(11, 41, 99";
+            root.style.color = "white";
         } else {
-            root.style.backgroundColor = "#fff"
-            root.style.color = "black";
+            root.style.backgroundColor = "white"
+            root.style.color = "rgb(11, 41, 99";
         }
         setTheme(!theme);
     }

@@ -1,0 +1,13 @@
+.product-detail-img {
+    height: 400px;
+    width: 400px;
+    border-radius: 1rem;
+}
+
+.content {
+    margin-left: 2rem;
+}
+
+.detail {
+    height: 100vh;
+}
