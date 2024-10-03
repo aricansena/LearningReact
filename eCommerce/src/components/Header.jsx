@@ -3,9 +3,12 @@ import '../css/Header.css'
 import { BsBasket } from "react-icons/bs";
 import { MdOutlineLightMode } from "react-icons/md";
 import { FaMoon } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom'
+import Badge from '@mui/material/Badge';
 
 function Header() {
     const [theme, setTheme] = useState(true);
+    const navigate = useNavigate()
     const changeTheme = () => {
         const root = document.getElementById("root");
         setTheme(!theme);
@@ -19,8 +22,8 @@ function Header() {
         setTheme(!theme);
     }
     return (
-        <div className='div-space-between'>
-            <div className='flex-row'>
+        <div className='div-space-between header-div'>
+            <div onClick={() => navigate("/")} className='flex-row'>
                 <img className='logo' src="./src/images/logo2.png"></img>
                 <p className='logo-text'> E-Ticaret Sitesi</p>
             </div>
@@ -28,8 +31,10 @@ function Header() {
                 <input className='search-input' type='text' placeholder='Ara'></input>
                 <div>
                     {theme ? <FaMoon className='icon' onClick={changeTheme} /> : <MdOutlineLightMode className='icon' onClick={changeTheme} />}
-                    <BsBasket className='icon' />
                 </div>
+                <Badge badgeContent={4} color="secondary">
+                    <BsBasket className='icon' />
+                </Badge>
             </div>
         </div>
     )

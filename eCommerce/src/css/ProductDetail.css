@@ -11,3 +11,12 @@
 .detail {
     height: 100vh;
 }
+
+.price {
+    color: red;
+}
+
+.icon {
+    font-size: 32px;
+    margin: 5px;
+}

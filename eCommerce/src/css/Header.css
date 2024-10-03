@@ -11,7 +11,7 @@
 }
 
 .icon {
-    font-size: 20px;
+    font-size: 18px;
     margin-left: 10px;
 }
 
@@ -26,4 +26,8 @@
     outline: none;
     font-size: 18px;
     border-radius: 1rem;
+}
+
+.header-div {
+    padding: 10px;
 }

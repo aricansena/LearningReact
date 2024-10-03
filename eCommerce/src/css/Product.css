@@ -9,14 +9,7 @@
     height: 90px;
 }
 
-.detail-button {
-    border: none;
-    border-radius: 1rem;
-    padding: 5px 15px;
-    width: 50%;
-    color: white;
-    background-color: darkgray;
-}
+
 
 .detail-button:hover {
     cursor: pointer;
