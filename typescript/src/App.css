@@ -55,9 +55,19 @@ body {
   outline: none;
   padding: 10px;
   font-size: 18px;
+
 }
 
 .icon {
   margin-right: 0.5rem;
   font-size: 22px;
+}
+
+.edit-todo-input {
+  border: none;
+  width: 75%;
+  outline: none;
+  border-radius: 2rem;
+  padding-left: 10px;
+  margin: 5px;
 }
