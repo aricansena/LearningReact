@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { toast } from 'react-toastify';
 import '../css/Auth.css'
 import { Button } from '@mui/material'
 import GoogleIcon from '@mui/icons-material/Google';
 import TextField from '@mui/material/TextField';
 import { auth } from '../Firebase';
+import { useNavigate } from 'react-router-dom';
 
 function Auth() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const provider = new GoogleAuthProvider();
+
     const register = async () => {
         try {
             const response = await createUserWithEmailAndPassword(auth, email, password);
@@ -23,8 +27,32 @@ function Auth() {
         } catch (error) {
             toast.error(error.message);
         }
+    }
 
+    const login = async () => {
+        try {
+            const response = await signInWithEmailAndPassword(auth, email, password);
+            const user = response.user;
+            if (user) {
+                navigate("/");
+            }
+        } catch (error) {
+            toast.error("Invalid Credential " + error.message);
+        }
+    }
 
+    const loginWithGoogle = async () => {
+        try {
+            const response = await signInWithPopup(auth, provider);
+            const credential = GoogleAuthProvider.credentialFromResult(response);
+            const user = response.user;
+            if (user) {
+                navigate("/");
+            }
+        } catch (error) {
+            toast.error(error.message);
+            credentialFromError(error);
+        }
     }
     return (
         <div className='auth flex-column'>
@@ -55,6 +83,7 @@ function Auth() {
                         width: '150px',
                         margin: '10px  10px 0px'
                     }}
+                    onClick={login}
                     variant='contained'
                     size='medium'
                 >
@@ -74,6 +103,7 @@ function Auth() {
             </div>
             <div>
                 <Button
+                    onClick={loginWithGoogle}
                     variant='outlined'
                     size='medium'
                     startIcon={<GoogleIcon />}
